@@ -10,11 +10,11 @@ int parent[10001];
 
 void Cul(int num, int Cash) {
     
-    int Up = Cash / 10; // À§·Î º¸³»ÁÙ ±İ¾×
-    Amount[num] += (Cash - Up); // ÀÌ°Ç ³»°¡ ¸ÔÀ½
-    if (Up == 0 || parent[num] == num) return; // ÃßÃµÀÎ¿¡°Ô ÁÙ µ·ÀÌ ¾ø°Å³ª, ÃßÃµÀÎÀÌ ¾ø´Ù¸é
+    int Up = Cash / 10; // ìœ„ë¡œ ë³´ë‚´ì¤„ ê¸ˆì•¡
+    Amount[num] += (Cash - Up); // ì´ê±´ ë‚´ê°€ ë¨¹ìŒ
+    if (Up == 0 || parent[num] == num) return; // ì¶”ì²œì¸ì—ê²Œ ì¤„ ëˆì´ ì—†ê±°ë‚˜, ì¶”ì²œì¸ì´ ì—†ë‹¤ë©´
 
-    Cul(parent[num], Up); // ÃßÃµÀÎ¿¡°Ô µ·À» º¸³¿
+    Cul(parent[num], Up); // ì¶”ì²œì¸ì—ê²Œ ëˆì„ ë³´ëƒ„
 
 }
 
@@ -23,8 +23,8 @@ vector<int> solution(vector<string> enroll, vector<string> referral, vector<stri
     vector<int> answer;
 
     for (int i = 0; i < enroll.size(); i++) {
-        Ref.insert({ enroll[i],i }); // ÀÌ¸§¸¶´Ù ¹øÈ£ ¸ÅÄª
-        parent[i] = i; // ÀÚ±â ÀÚ½ÅÀº ÃßÃµÀÎÀÌ ¾øÀ½
+        Ref.insert({ enroll[i],i }); // ì´ë¦„ë§ˆë‹¤ ë²ˆí˜¸ ë§¤ì¹­
+        parent[i] = i; // ìê¸° ìì‹ ì€ ì¶”ì²œì¸ì´ ì—†ìŒ
     }
 
     for (int i = 0; i < referral.size(); i++) {
@@ -33,8 +33,8 @@ vector<int> solution(vector<string> enroll, vector<string> referral, vector<stri
     }
 
     for (int i = 0; i < seller.size(); i++) {
-        int num = Ref[seller[i]]; // ÆÇ »ç¶÷ÀÇ ¹øÈ£
-        int Cash = amount[i] * 100; // ÆÇ »ç¶÷ÀÇ ±İ¾×
+        int num = Ref[seller[i]]; // íŒ ì‚¬ëŒì˜ ë²ˆí˜¸
+        int Cash = amount[i] * 100; // íŒ ì‚¬ëŒì˜ ê¸ˆì•¡
         Cul(num, Cash);
     }
 
