@@ -18,19 +18,19 @@ void input() {
 }
 
 void cul_incline() {
-	for (int M = 0; M < N; M++) { // »ìÆìº¼ °Ç¹°
+	for (int M = 0; M < N; M++) { // ì‚´í´ë³¼ ê±´ë¬¼
 		float Left = 100000000000.0;
 		float Right = -10000000000.0;
-		for (float L = M - 1; L >= 0; L--) { // ÀÌ °Ç¹°ÀÌ ¿ŞÂÊÀ¸·Î º¼ ¼ö ÀÖ´Â ºôµù
+		for (float L = M - 1; L >= 0; L--) { // ì´ ê±´ë¬¼ì´ ì™¼ìª½ìœ¼ë¡œ ë³¼ ìˆ˜ ìˆëŠ” ë¹Œë”©
 			float L_in = (building[M] - building[L]) / (M - L);
-			if (L_in < Left) { // ±â¿ï±â°¡ ´õ ³·¾Æ¾ß º¼ ¼ö ÀÖÀ½
+			if (L_in < Left) { // ê¸°ìš¸ê¸°ê°€ ë” ë‚®ì•„ì•¼ ë³¼ ìˆ˜ ìˆìŒ
 				Left = L_in;
 				cnt[M]++;
 			}
 		}
-		for (float R = M + 1; R < N; R++) { // ÀÌ °Ç¹°ÀÌ ¿ŞÂÊÀ¸·Î º¼ ¼ö ÀÖ´Â ºôµù
+		for (float R = M + 1; R < N; R++) { // ì´ ê±´ë¬¼ì´ ì™¼ìª½ìœ¼ë¡œ ë³¼ ìˆ˜ ìˆëŠ” ë¹Œë”©
 			float R_in = (building[R] - building[M]) / (R - M);
-			if (R_in > Right) { // ±â¿ï±â°¡ ´õ ³ô¾Æ¾ß º¼ ¼ö ÀÖÀ½
+			if (R_in > Right) { // ê¸°ìš¸ê¸°ê°€ ë” ë†’ì•„ì•¼ ë³¼ ìˆ˜ ìˆìŒ
 				Right = R_in;
 				cnt[M]++;
 			}
